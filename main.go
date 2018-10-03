@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"github.ibm.com/bluebox/todo2/actions"
+	"github.com/scoop206/todo2/actions"
 )
 
 // main is the starting point to your Buffalo application.

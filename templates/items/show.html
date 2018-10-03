@@ -1,0 +1,16 @@
+<div class="page-header">
+  <h1>Item#Show</h1>
+</div>
+
+<ul class="list-unstyled list-inline">
+  <li class="list-inline-item"><a href="<%= itemsPath() %>" class="btn btn-info">Back to all Items</a></li>
+  <li class="list-inline-item"><a href="<%= editItemPath({ item_id: item.ID })%>" class="btn btn-warning">Edit</a></li>
+  <li class="list-inline-item"><a href="<%= itemPath({ item_id: item.ID })%>" data-method="DELETE" data-confirm="Are you sure?" class="btn btn-danger">Destroy</a>
+</ul>
+
+<p>
+  <strong>Title</strong>: <%= item.Title %>
+</p>
+<p>
+  <strong>Body</strong>: <%= item.Body %>
+</p>

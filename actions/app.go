@@ -10,7 +10,7 @@ import (
 	"github.com/gobuffalo/buffalo/middleware/csrf"
 	"github.com/gobuffalo/buffalo/middleware/i18n"
 	"github.com/gobuffalo/packr"
-	"github.ibm.com/bluebox/todo2/models"
+	"github.com/scoop206/todo2/models"
 )
 
 // ENV is used to help switch settings based on where the
@@ -47,7 +47,19 @@ func App() *buffalo.App {
 		// Setup and use translations:
 		app.Use(translations())
 
+		app.Use(SetCurrentUser)
 		app.GET("/", HomeHandler)
+
+		app.Resource("/items", ItemsResource{})
+
+		app.Use(Authorize)
+
+		app.GET("/users/new", UsersNew)
+		app.POST("/users", UsersCreate)
+		app.GET("/signin", AuthNew)
+		app.POST("/signin", AuthCreate)
+		app.GET("/signout", AuthDestroy)
+		app.Middleware.Skip(Authorize, HomeHandler, UsersNew, UsersCreate, AuthNew, AuthCreate)
 
 		app.ServeFiles("/", assetsBox) // serve files from the public directory
 	}

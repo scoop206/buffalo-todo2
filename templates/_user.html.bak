@@ -1,0 +1,10 @@
+<% let current_user_id = session.Get("current_user_id") %>
+<%= if (current_user_id) { %>
+<%# let cu = current_user.Email %>
+<div class="float-right">
+	Logged in as: <%= cu %>
+</div>
+<div>
+	<%= debug(
+</div>
+<% } %>
