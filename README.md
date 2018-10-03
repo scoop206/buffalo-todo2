@@ -67,7 +67,11 @@ at this point I just started hacking on it to get it working:
   ( this took forever b/c my `app.Use(SetCurrentUser)` call in actions/app.go was after my items resource declaration.  B/c of this my current_user would never be set in the context.  This issue blew my mind a bit.  I had no idea the order mattered in actions/app.go)
 
 
-## The rest is Boilerplate to setup the app
+The rest is Boilerplate to setup the app...  
+
+
+
+
 
 Thank you for choosing Buffalo for your web development needs.
 
